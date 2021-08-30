@@ -1,0 +1,25 @@
+<a class="btn btn-primary mb-3"
+  [routerLink]="['/stocks-dashboard']" 
+  routerLinkActive="active">
+  Back to list
+</a>
+<div *ngIf="stock">
+  <p class="fs-2" *ngIf="stock.ticker" >
+    <span matTooltip="Ticker" [matTooltipPosition]="position.value">{{stock.ticker}}</span>
+  </p>
+  <p class="fs-4" *ngIf="stock.name">
+    <span matTooltip="Name" [matTooltipPosition]="position.value">{{stock.name}}</span>
+  </p>
+  <p class="fs-4" *ngIf="stock.phone_number">
+    <span matTooltip="Phone number" [matTooltipPosition]="position.value">Tel: {{stock.phone_number}}</span>
+  </p>
+  <p class="fs-6" *ngIf="stock.market" >
+    <span matTooltip="Market" [matTooltipPosition]="position.value">
+        {{stock.market}}
+    </span>
+  </p>
+</div>
+<div>
+    <app-stock-chart [data]="chartData" ></app-stock-chart>
+</div>
+

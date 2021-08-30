@@ -1,0 +1,57 @@
+<div class="d-flex flex-column stocks-list">
+  <div class="d-flex flex-row flex-shrink-0 justify-content-between align-items-center">
+      <h2>Stocks list</h2>
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Enter ticker to search">
+      </mat-form-field>
+  </div>
+  
+  <div class="d-flex" class="stocks-list-table-container">
+    <div class="stocks-list-table">
+      <!-- <div> -->
+    
+        <table mat-table [dataSource]="stocks" class="mat-elevation-z8 demo-table" *ngIf="stocks">
+  
+          <ng-container matColumnDef="stocks-ticker">
+            <th mat-header-cell *matHeaderCellDef> Ticker </th>
+            <td mat-cell *matCellDef="let element"> 
+              <a [routerLink]="['/stock-details', element.ticker]" routerLinkActive="active">{{element.ticker}}</a></td>
+          </ng-container>
+        
+  
+          <ng-container matColumnDef="stocks-name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+  
+          <ng-container matColumnDef="stocks-market">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.market}} </td>
+          </ng-container>
+        
+  
+          <ng-container matColumnDef="stocks-currency">
+            <th mat-header-cell *matHeaderCellDef> Currency </th>
+            <td mat-cell *matCellDef="let element"> {{element.currency_name}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="stocks-status">
+            <th mat-header-cell *matHeaderCellDef> Active </th>
+            <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter</td>
+          </tr>
+        </table>      
+      <!-- </div> -->
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,22 @@
+.stocks-list {
+  height: 90vh;
+}
+
+.stocks-list-table-container {
+  display: flex;
+  flex: 1;
+  min-height: 0px; 
+}
+
+.stocks-list-table {
+  flex: 1;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+table tr td, table tr th {
+  padding: 0px 20px;
+}

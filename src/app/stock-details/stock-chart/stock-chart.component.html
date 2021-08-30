@@ -1,0 +1,16 @@
+<ngx-charts-line-chart *ngIf="data && data.length"
+  [view]="chartOptions.view"
+  [legend]="chartOptions.legend"
+  [showXAxisLabel]="chartOptions.showXAxisLabel"
+  [showYAxisLabel]="chartOptions.showYAxisLabel"
+  [xAxis]="chartOptions.xAxis"
+  [yAxis]="chartOptions.yAxis"
+  [xAxisLabel]="chartOptions.xAxisLabel"
+  [yAxisLabel]="chartOptions.yAxisLabel"
+  [timeline]="chartOptions.timeline"
+  [results]="data">
+</ngx-charts-line-chart>
+
+<div class="alert alert-info" *ngIf="data && !data.length">
+  No Chart available
+</div>
